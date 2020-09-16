@@ -1,4 +1,4 @@
-import App from "./src/App.js"
+import App from "./src/Loading.js"
 import React from 'react';
 import { registerRootComponent } from 'expo';
 
