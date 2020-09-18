@@ -9,7 +9,7 @@ export default class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      component : <Splash />      
+      component : <Splash navigation={this.props.navigation}/>      
     }
   }
 
@@ -20,7 +20,7 @@ componentDidMount() {
   this.timeoutHandle = setTimeout(()=>{
 
     // Add your logic for the transition
-    this.setState({ component: <Login /> })
+    this.setState({ component: <Login navigation={this.props.navigation}/> })
   }, 5000);
 }
 
