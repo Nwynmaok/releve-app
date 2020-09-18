@@ -31,92 +31,92 @@ export default class App extends React.Component {
     
     return (
       <View style={styles.container}>
-      <View style={{flex:.15}}>
-        <Text style={styles.heading}>WELCOME</Text>
-        <StatusBar style="auto" />
-      </View>
-      <View style={{flex: .5, borderBottomWidth:1, borderColor:'rgba(0,0,0,.2)'}}>
-        <Swiper 
-          style={styles.wrapper} 
-          loop={false}
-          dot={
-            <View
-              style={{
-                backgroundColor: 'rgba(0,0,0,.2)',
-                width: 12,
-                height: 12,
-                borderRadius: 6,
-                marginLeft: 4,
-                marginRight: 4,
-                marginTop: 4,
-                marginBottom: 4
-              }}
-            />
-          }
-          activeDot={
-            <View
-              style={{
-                backgroundColor: '#000',
-                width: 12,
-                height: 12,
-                borderRadius: 6,
-                marginLeft: 4,
-                marginRight: 4,
-                marginTop: 4,
-                marginBottom: 4
-              }}
-            />
-          }
-          paginationStyle={{
-            bottom: -35,
-          }}
-        >
-          <View testID="Hello" style={styles.slide1}>
-            <Image
-              resizeMode="contain"
-              style={styles.image}
-              source={require('../../img/placeholder-image1.png')}
-            />
-            <View style={{flex: .05}} />
-            <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in erat sem. Praesent et tincidunt ligula. Quisque iaculis commodo pretium. Curabitur vitae enim eget elit vulputate ultricies eget eget metus. Cras commodo arcu ut pretium auctor. Duis est nibh, vestibulum ut gravida et, lobortis et urna. Phasellus auctor ligula nulla, eget ultricies elit lobortis vel.</Text>
-          </View>
-          <View testID="Beautiful" style={styles.slide2}>
-            <Image
+        <View style={{flex:.15}}>
+          <Text style={styles.heading}>WELCOME</Text>
+          <StatusBar style="auto" />
+        </View>
+        <View style={{flex: .5, borderBottomWidth:1, borderColor:'rgba(0,0,0,.2)'}}>
+          <Swiper 
+            style={styles.wrapper} 
+            loop={false}
+            dot={
+              <View
+                style={{
+                  backgroundColor: 'rgba(0,0,0,.2)',
+                  width: 12,
+                  height: 12,
+                  borderRadius: 6,
+                  marginLeft: 4,
+                  marginRight: 4,
+                  marginTop: 4,
+                  marginBottom: 4
+                }}
+              />
+            }
+            activeDot={
+              <View
+                style={{
+                  backgroundColor: '#000',
+                  width: 12,
+                  height: 12,
+                  borderRadius: 6,
+                  marginLeft: 4,
+                  marginRight: 4,
+                  marginTop: 4,
+                  marginBottom: 4
+                }}
+              />
+            }
+            paginationStyle={{
+              bottom: -35,
+            }}
+          >
+            <View testID="Hello" style={styles.slide1}>
+              <Image
                 resizeMode="contain"
                 style={styles.image}
-                source={require('../../img/placeholder-image2.png')}
+                source={require('../../img/placeholder-image1.png')}
               />
               <View style={{flex: .05}} />
               <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in erat sem. Praesent et tincidunt ligula. Quisque iaculis commodo pretium. Curabitur vitae enim eget elit vulputate ultricies eget eget metus. Cras commodo arcu ut pretium auctor. Duis est nibh, vestibulum ut gravida et, lobortis et urna. Phasellus auctor ligula nulla, eget ultricies elit lobortis vel.</Text>
-          </View>
-        </Swiper>
+            </View>
+            <View testID="Beautiful" style={styles.slide2}>
+              <Image
+                  resizeMode="contain"
+                  style={styles.image}
+                  source={require('../../img/placeholder-image2.png')}
+                />
+                <View style={{flex: .05}} />
+                <Text style={styles.text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in erat sem. Praesent et tincidunt ligula. Quisque iaculis commodo pretium. Curabitur vitae enim eget elit vulputate ultricies eget eget metus. Cras commodo arcu ut pretium auctor. Duis est nibh, vestibulum ut gravida et, lobortis et urna. Phasellus auctor ligula nulla, eget ultricies elit lobortis vel.</Text>
+            </View>
+          </Swiper>
+        </View>
+        <View style={{flex: .05, width: '100%', borderColor:'rgba(0,0,0,.2)', borderBottomWidth:1}}>
+        <View style={{flex: .05}}/>
+        </View>
+        <View  style={styles.bottom}>
+          <TouchableOpacity onPress={() => this.onPress()}>
+            <View style={styles.submitButton}>
+              <Text style={styles.buttonText}>Sign in with Email (proceed to signup)</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => {}}>
+            <View style={styles.submitButton}>
+              <Text style={styles.buttonText}>Sign in with Relevé Fashion Account</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => {}}>
+            <View style={styles.submitButton}>
+              <Text style={styles.buttonText}>Sign in with Google</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => {}}>
+            <View style={styles.submitButton}>
+              <Text style={styles.buttonText}>Sign in with Apple</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={{flex: .05, width: '100%', borderColor:'rgba(0,0,0,.2)', borderBottomWidth:1}}>
-      <View style={{flex: .05}}/>
-      </View>
-      <View  style={styles.bottom}>
-        <TouchableOpacity onPress={() => this.onPress()}>
-          <View style={styles.submitButton}>
-            <Text style={styles.buttonText}>Sign in with Email (proceed to signup)</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <View style={styles.submitButton}>
-            <Text style={styles.buttonText}>Sign in with Relevé Fashion Account</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <View style={styles.submitButton}>
-            <Text style={styles.buttonText}>Sign in with Google</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
-          <View style={styles.submitButton}>
-            <Text style={styles.buttonText}>Sign in with Apple</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    </View>
     );
   }
 }

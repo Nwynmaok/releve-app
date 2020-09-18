@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 class Welcome extends React.Component {
   static navigationOptions = {
@@ -11,8 +11,18 @@ class Welcome extends React.Component {
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Welcome</Text>
+      <View style={{flex: 0.4}}>
+        <Image
+          resizeMode="contain"
+          style={{flex: 1}}
+          source={require('../../img/placeholder-image1.png')}
+        />
+      </View>
+      <Text style={{fontSize: 20}}>WELCOME</Text>
       <StatusBar style="auto" />
+      <View style={{flex: 0.05}}/>
+      <Text style={styles.text}>Welcome to I’Mpact! An app designed to track and encourage every day actions that are good for people and good for our planet."</Text>
+      <View style={{flex: 0.45}}/>
     </View>
   );
 }
@@ -24,4 +34,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    marginHorizontal:50   
+  }
 });
