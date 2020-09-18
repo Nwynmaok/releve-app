@@ -21,7 +21,7 @@ export default function App() {
       <Text style={{fontSize: 20}}>WELCOME</Text>
       <StatusBar style="auto" />
       <View style={{flex: 0.05}}/>
-      <Text style={styles.text}>Welcome to I’Mpact! An app designed to track and encourage every day actions that are good for people and good for our planet."</Text>
+      <Text style={styles.text}>Welcome to I’Mpact! An app designed to track and encourage every day actions that are good for people and good for our planet.</Text>
       <View style={{flex: 0.45}}/>
     </View>
   );
