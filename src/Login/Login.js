@@ -6,29 +6,12 @@ import Swiper from 'react-native-swiper';
 
 
 export default class App extends React.Component {
-
-  // constructor(props) {
-  //   super(props);
-  //   this.state ={};
-  // }
-
-  // static NavigationOptions = {
-  //   title: 'Home',
-  // };
-
-  // this.props.navigation.navigate
+  
   onPress() {
     this.props.navigation.navigate('Welcome');
-    // alert("press");
   }
 
   render() {
-
-    // const { navigate } = this.props;
-
-    // const navigate = this.props.navigate;
-
-    
     return (
       <View style={styles.container}>
         <View style={{flex:.15}}>
@@ -151,7 +134,6 @@ const styles = StyleSheet.create({
     color: "#000000",
     fontSize: 12
   },
-
   wrapper: {},
   slide1: {
     flex: 1,
