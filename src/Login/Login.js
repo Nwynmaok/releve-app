@@ -8,7 +8,9 @@ import Swiper from 'react-native-swiper';
 export default class App extends React.Component {
   
   onPress() {
-    this.props.navigation.navigate('Welcome');
+    // this.props.navigation.navigate('Welcome'); // this will be main route
+      this.props.navigation.navigate('Goals'); //temporary for testing
+
   }
 
   render() {
