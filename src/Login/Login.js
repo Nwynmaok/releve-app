@@ -9,7 +9,7 @@ export default class App extends React.Component {
   
   onPress() {
     // this.props.navigation.navigate('Welcome'); // this will be main route
-      this.props.navigation.navigate('Goals'); //temporary for testing
+      this.props.navigation.navigate('GoalsFashion'); //temporary for testing
 
   }
 
