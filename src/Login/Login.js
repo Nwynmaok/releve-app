@@ -80,7 +80,12 @@ export default class App extends React.Component {
         <View  style={styles.bottom}>
           <TouchableOpacity onPress={() => this.onPress()}>
             <View style={styles.submitButton}>
-              <Text style={styles.buttonText}>Sign in with Email (proceed to signup)</Text>
+              <Text style={styles.buttonText}>Register</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => {}}>
+            <View style={styles.submitButton}>
+              <Text style={styles.buttonText}>Sign in with Email</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => {}}>
