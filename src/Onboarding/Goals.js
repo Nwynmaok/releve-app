@@ -286,6 +286,11 @@ export default class Goals extends React.Component {
           </View>
         </TouchableOpacity>
       </View>
+      <TouchableOpacity style={{flex: 0.1}} onPress={() => this.props.navigation.navigate('GoalsFashion')}>
+        <View style={{}}>
+          <Text style={{}}>Next</Text>
+        </View>
+      </TouchableOpacity>   
       </View>
     </View>
   );
