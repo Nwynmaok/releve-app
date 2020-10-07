@@ -78,9 +78,9 @@ export default class App extends React.Component {
             {/* <View style={{flex:0.1}}/> */}
             </View>   
             <TouchableOpacity style={{flex: 0.1}} onPress={() => this.props.navigation.navigate('Goals')}>
-            <View style={{}}>
+              <View style={{}}>
                 <Text style={{}}>Next</Text>
-            </View>
+              </View>
             </TouchableOpacity>       
           </View>
         </View>

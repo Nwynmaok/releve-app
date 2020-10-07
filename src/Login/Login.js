@@ -7,8 +7,16 @@ import Swiper from 'react-native-swiper';
 
 export default class App extends React.Component {
   
-  onPress() {
-    this.props.navigation.navigate('Welcome'); // this will be main route
+  onPress(login) {
+    switch(login) {
+      case 'register':
+        this.props.navigation.navigate('Welcome'); // this will be main route
+        break;
+      case 'login':
+        this.props.navigation.navigate('TabNavigator'); // this will be main route
+        break;      
+    }
+
       // this.props.navigation.navigate('GoalsFashion'); //temporary for testing
 
   }
@@ -80,12 +88,12 @@ export default class App extends React.Component {
         <View style={{flex: .05}}/>
         </View>
         <View  style={styles.bottom}>
-          <TouchableOpacity onPress={() => this.onPress()}>
+          <TouchableOpacity onPress={() => this.onPress('register')}>
             <View style={styles.submitButton}>
               <Text style={styles.buttonText}>Register</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={() => this.onPress('login')}>
             <View style={styles.submitButton}>
               <Text style={styles.buttonText}>Sign in with Email</Text>
             </View>
