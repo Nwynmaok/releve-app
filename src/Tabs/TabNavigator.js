@@ -3,8 +3,10 @@ import { Platform, StyleSheet, Text, View, YellowBox } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 // import Feed from './Feed.js';
-import Activity from './Activity.js';
+import ActivityMain from './Activities/ActivityMain.js';
+import OOOTD from './Activities/OOOTD.js';
 // import Savings from './Savings.js';
 // import Shop from './Shop.js';
 // import Impact from './Impact.js';
@@ -17,13 +19,16 @@ function Feed() {
   );
 }
 
-// function Activity() {
-//   return (
-//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//       <Text>Settings!</Text>
-//     </View>
-//   );
-// }
+const ActivityStack = createStackNavigator();
+
+function Activity() {
+  return (
+    <ActivityStack.Navigator screenOptions={{headerShown: false}}>
+      <ActivityStack.Screen name="ActivityMain" component={ActivityMain}/>
+      <ActivityStack.Screen name="OOOTD" component={OOOTD}/>
+    </ActivityStack.Navigator>
+  );
+}
 
 function Savings() {
   return (
@@ -78,7 +83,7 @@ export default class App extends Component {
 
           },
         })}
-          tabBarOpotions={{
+          tabBarOptions={{
             activeTintColor: 'tomato',
             inactiveTinyColor: 'gray',
           }}
