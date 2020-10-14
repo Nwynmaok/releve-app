@@ -83,6 +83,11 @@ class Registration extends React.Component {
                 
             <View style={{flex: 0.2}}>
                 <View style={{flex: 1}}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Goals')}>
+                    <View style={styles.submitButton}>
+                        <Text style={styles.buttonText}>Create Account</Text>
+                    </View>
+                    </TouchableOpacity>
                     <TouchableOpacity onPress={() => {}}>
                     <View style={styles.submitButton}>
                         <Text style={styles.buttonText}>Sign in with Relevé Fashion Account</Text>
