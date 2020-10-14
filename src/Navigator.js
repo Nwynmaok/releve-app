@@ -9,6 +9,7 @@ import WeekdayWakeup from './Onboarding/WeekdayWakeup.js';
 import GoalsFashion from './Onboarding/GoalsFashion.js';
 import How from './Onboarding/How.js'
 import TabNavigator from './Tabs/TabNavigator.js'
+import Registration from './Onboarding/Registration'
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ export default class App extends Component {
             <Stack.Screen name="GoalsFashion" component={GoalsFashion} />
             <Stack.Screen name="How" component={How} />
             <Stack.Screen name="TabNavigator" component={TabNavigator} />
+            <Stack.Screen name="Registration" component={Registration} />
         </Stack.Navigator>
       </NavigationContainer>
     )
