@@ -15,14 +15,23 @@ export default class App extends React.Component {
       PerformedActivities: [],
       Activity1Text: "Activity 1",
       Activity1Img: require("../img/placeholder-image3.png"),
-      ActivityPage: "Default",
+      Activity1Page: "false",
+      Activity2Text: "Activity 2",
+      Activity2Img: require("../img/placeholder-image3.png"),
+      Activity2Page: "false",
+      Activity3Text: "Activity 3",
+      Activity3Img: require("../img/placeholder-image3.png"),
+      Activity3Page: "false",
+      Activity4Text: "Activity 4",
+      Activity4Img: require("../img/placeholder-image3.png"),
+      Activity4Page: "false",
     }
   }
   componentDidMount() {  
     console.log(this.props)    
     this.setState({Activity1Text: "#OOOTD"});
     this.setState({Activity1Img: require("../img/Shirt.png")});
-    this.setState({ActivityPage: "ActivityPage"});
+    this.setState({Activity1Page: "OOOTD"});
   }
 
   render() {
@@ -38,12 +47,13 @@ export default class App extends React.Component {
         </View>
         <View style={styles.activityContainer}>
           <View style={styles.row}>        
-            <ActivityTile text={this.state.Activity1Text} src={this.state.Activity1Img} activity={this.state.ActivityPage} navigation={this.props.navigation} title="OOOTD"/> 
-            <ActivityTile text='Activity 2' src={require('../img/placeholder-image3.png')}/> 
+            <ActivityTile text={this.state.Activity1Text} src={this.state.Activity1Img} activity={this.state.Activity1Page} navigation={this.props.navigation} title={this.state.Activity1Page}/> 
+            <ActivityTile text={this.state.Activity2Text} src={this.state.Activity2Img} activity={this.state.Activity2Page} navigation={this.props.navigation} title={this.state.Activity2Page}/> 
+            {/* <ActivityTile text='Activity 2' src={require('../img/placeholder-image3.png')} activity="false" navigation={this.props.navigation} title={this.state.Activity2Page}/>  */}
           </View>
           <View style={styles.row}>
-            <ActivityTile text='Activity 3' src={require('../img/placeholder-image3.png')}/> 
-            <ActivityTile text='Activity 4' src={require('../img/placeholder-image3.png')}/> 
+            <ActivityTile text={this.state.Activity3Text} src={this.state.Activity3Img} activity={this.state.Activity3Page} navigation={this.props.navigation} title={this.state.Activity3Page}/> 
+            <ActivityTile text={this.state.Activity4Text} src={this.state.Activity4Img} activity={this.state.Activity4Page} navigation={this.props.navigation} title={this.state.Activity4Page}/> 
           </View>
         </View>
       <View style={styles.footer}>
