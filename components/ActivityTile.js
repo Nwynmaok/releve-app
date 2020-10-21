@@ -10,9 +10,19 @@ export default class ActivityTile extends React.Component {
     }
   }
 
+  onPress(button) {
+    this.props.navigation.navigate(button, {
+      title: this.props.title,
+    });
+    console.log(this.props)
+  }
+
   render() {
+
+    
+
     return (
-      <TouchableOpacity style={styles.activity} onPress={() => {}}>
+      <TouchableOpacity style={styles.activity} onPress={() => this.onPress(this.props.activity)}>
           <View style={ styles.activityImage }>
             <Image
               resizeMode="contain"
