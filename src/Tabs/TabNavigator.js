@@ -10,12 +10,15 @@ import OOOTD from './Activities/OOOTD.js';
 // import Savings from './Savings.js';
 // import Shop from './Shop.js';
 // import Impact from './Impact.js';
+import FeedMain from './Feed/FeedMain.js';
+
+const FeedStack = createStackNavigator();
 
 function Feed() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
+    <FeedStack.Navigator screenOptions={{headerShown: false}}>
+      <FeedStack.Screen name="FeedMain" component={FeedMain}/>
+    </FeedStack.Navigator>
   );
 }
 
@@ -23,10 +26,9 @@ const ActivityStack = createStackNavigator();
 
 function Activity() {
   return (
-    <ActivityStack.Navigator screenOptions={{headerShown: false}}>
-      <ActivityStack.Screen name="ActivityMain" component={ActivityMain}/>
-      <ActivityStack.Screen name="OOOTD" component={OOOTD}/>
-    </ActivityStack.Navigator>
+    <FeedStack.Navigator screenOptions={{headerShown: false}}>
+      <FeedStack.Screen name="ActivityMain" component={ActivityMain}/>
+    </FeedStack.Navigator>
   );
 }
 
