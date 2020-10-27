@@ -40,14 +40,26 @@ export default class App extends React.Component {
     }
   }
 
+  retakeImg() {
+    this.setState({imgPicked: false})
+  }
+
   renderPicker() {
     if (this.state.imgPicked) {
       return (
+        <View>        
         <Image
           resizeMode="contain"
           style={{width: 300, height: 300, resizeMode: "contain"}}
           source={{ uri: this.state.imgSrc }}
         /> 
+        <TouchableOpacity onPress={() => this.retakeImg()}>
+        <Text>Retake Photo</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.retakeImg()}>
+        <Text>Share Photo</Text>
+        </TouchableOpacity>
+        </View>        
       );
     } else {
       return (
