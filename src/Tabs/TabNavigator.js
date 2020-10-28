@@ -6,13 +6,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 // import Feed from './Feed.js';
 import ActivityMain from './Activities/ActivityMain.js';
-import OOOTD from './Activities/OOOTD.js';
+import ActivityPage from './Activities/ActivityPage.js';
 // import Savings from './Savings.js';
 // import Shop from './Shop.js';
 // import Impact from './Impact.js';
 import FeedMain from './Feed/FeedMain.js';
 
 const FeedStack = createStackNavigator();
+
 
 function Feed() {
   return (
@@ -26,9 +27,16 @@ const ActivityStack = createStackNavigator();
 
 function Activity() {
   return (
+<<<<<<< HEAD
     <FeedStack.Navigator screenOptions={{headerShown: false}}>
       <FeedStack.Screen name="ActivityMain" component={ActivityMain}/>
     </FeedStack.Navigator>
+=======
+    <ActivityStack.Navigator screenOptions={{headerShown: false}}>
+      <ActivityStack.Screen name="ActivityMain" component={ActivityMain} />
+      <ActivityStack.Screen name="ActivityPage" component={ActivityPage}/>
+    </ActivityStack.Navigator>
+>>>>>>> 762c18ae84c86cceb9075dd806b3872f7080edd1
   );
 }
 
@@ -59,6 +67,11 @@ function Impact() {
 const Tab = createBottomTabNavigator();
 
 export default class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+    }
+  }
   render() {
     return (
       <Tab.Navigator
