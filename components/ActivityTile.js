@@ -12,20 +12,24 @@ export default class ActivityTile extends React.Component {
       imgDone : false,
       imgCancel : false,
       imgComplete : false,
+      addAction : false,
       fadeValue: new Animated.Value(1),
     }
   }
 
   componentDidMount() {  
-    console.log(this)
+    // console.log(this)
     
-    console.log("MOUNT")
+    // console.log("MOUNT")
     this.state.fadeValue.setValue(1)
+    if (this.props.activity === "Add") {
+      this.setState({addAction: true})
+    }
   } 
   
   componentWillUnmount() {
-    console.log(this)
-    console.log("UNMOUNT")
+    // console.log(this)
+    // console.log("UNMOUNT")
   //   this.state.fadeValue.setValue(1)
   //   Animated.timing(                  
   //     this.state.fadeValue,            
@@ -39,10 +43,16 @@ export default class ActivityTile extends React.Component {
   }
 
   onPress() {
-    if (this.props.activity !== "false") {
+    console.log(this.props.activity)
+    console.log("^ACTIVITY")
+    if (this.props.activity !== "false" && this.props.activity !== "Add") {
+      // console.log("TRUE")
       this.props.navigation.navigate("ActivityPage", {
         title: this.props.title,
       });
+    }
+    else if (this.props.activity === "Add") {
+      // console.log("Add")
     }
     else {
       // if (this.state.tileAction === "back") {
@@ -54,7 +64,7 @@ export default class ActivityTile extends React.Component {
 
   tilePress(action) {
     // console.log(this.props)
-    console.log(this)    
+    // console.log(this)    
     if (action === "done") {
       this.setState({ imgDone: !this.state.imgDone })                    
       this.setState({ imgComplete: !this.state.imgComplete })                          
@@ -80,7 +90,22 @@ export default class ActivityTile extends React.Component {
       ).start(() => {this.props.delete(this.props.text)}); 
       // this.props.removeItem
       // this.props.delete(this.props.text)
-    } else {
+    } else if (action === "add") {
+      // this.setState({ imgDone: !this.state.imgDone })                    
+      // this.setState({ imgCancel: !this.state.imgCancel })                    
+      // this.state.fadeValue.setValue(1)
+      // Animated.timing(                  
+      //    this.state.fadeValue,            
+      //    {
+      //      toValue: 0,                   
+      //      duration: 500,              
+      //    }
+      // ).start(() => 
+      // console.log(this)
+      this.props.add(this.props.text, this.props.page, this.props.src); 
+      // this.props.removeItem
+      // this.props.delete(this.props.text)
+    }else {
       this.setState({ imgDone: !this.state.imgDone })              
     }
   }
@@ -142,6 +167,20 @@ export default class ActivityTile extends React.Component {
         </View>
         <Text style={styles.activityText}>{this.props.text}</Text>
       </Animated.View>
+      );
+    } else if (this.state.addAction) {
+      return (
+        
+        <TouchableOpacity style={styles.activity} onPress={() => this.tilePress("add")}>
+        <View style={ styles.activityImage }>
+        <Image
+        resizeMode="contain"
+        // style={ styles.activityImage }
+        source={this.props.src}
+        />             
+          </View>
+          <Text style={styles.activityText}>{this.props.text}</Text>
+      </TouchableOpacity>
       );
     } else {
 

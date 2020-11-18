@@ -7,6 +7,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 // import Feed from './Feed.js';
 import ActivityMain from './Activities/ActivityMain.js';
 import ActivityPage from './Activities/ActivityPage.js';
+import AddActionPage from './Activities/AddActionPage.js';
+import ProfilePage from '../components/ProfilePage.js';
 // import Savings from './Savings.js';
 // import Shop from './Shop.js';
 // import Impact from './Impact.js';
@@ -25,8 +27,10 @@ const ActivityStack = createStackNavigator();
 function Activity() {
   return (
     <ActivityStack.Navigator screenOptions={{headerShown: false}}>
-      <ActivityStack.Screen name="ActivityMain" component={ActivityMain} />
+      <ActivityStack.Screen name="ActivityMain" component={ActivityMain}/>
       <ActivityStack.Screen name="ActivityPage" component={ActivityPage}/>
+      <ActivityStack.Screen name="AddActionPage" component={AddActionPage}/>
+      <ActivityStack.Screen name="ProfilePage" component={ProfilePage}/>
     </ActivityStack.Navigator>
   );
 }
