@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, YellowBox } from 'react-native';
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -81,10 +81,10 @@ export default class App extends Component {
               iconName = focused ? 'white-balance-sunny' : 'white-balance-sunny';
               return <MaterialCommunityIcons name={iconName} size={size} color={color} />              
             } else if (route.name === 'Savings') {
-              iconName = focused ? 'coin' : 'coin';
-              return <MaterialCommunityIcons name={iconName} size={size} color={color} />              
+              iconName = focused ? 'piggy-bank' : 'piggy-bank';
+              return <FontAwesome5 name={iconName} size={size} color={color} />              
             } else if (route.name === 'Shop') {
-              iconName = focused ? 'cart' : 'cart-outline';
+              iconName = focused ? 'shopping' : 'shopping';
               return <MaterialCommunityIcons name={iconName} size={size} color={color} />              
             } else if (route.name === 'Impact') {
               iconName = focused ? 'heart' : 'heart-outline';
@@ -94,7 +94,7 @@ export default class App extends Component {
           },
         })}
           tabBarOptions={{
-            activeTintColor: 'tomato',
+            activeTintColor: '#EE8265',
             inactiveTinyColor: 'gray',
           }}
       >

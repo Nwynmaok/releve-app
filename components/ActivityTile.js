@@ -237,6 +237,7 @@ const styles = StyleSheet.create({
     // // padding: 12,
     // paddingHorizontal: 6,
     textAlign: "center",
+    
     // backgroundColor: "white",
     color: "#000000",
     fontSize: 16

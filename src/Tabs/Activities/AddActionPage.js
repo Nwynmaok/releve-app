@@ -14,29 +14,47 @@ export default class App extends React.Component {
     this.state = {
       AvailableActivities: [
         {
-        text: "#OOOTD",
-        imgSrc: require("../img/Shirt.png"),
+        text: "GO TO THE SALON",
+        imgSrc: require("../img/salon.png"),
         page: "OOOTD",
       },
       {
-        text: "AddActivity 2",
-        imgSrc: require("../img/placeholder-image3.png"),
+        text: "DO LAUNDRY",
+        imgSrc: require("../img/laundry.png"),
         page: "false",
       },
       {
-        text: "AddActivity 3",
-        imgSrc: require("../img/placeholder-image3.png"),
+        text: "DO MY NAILS",
+        imgSrc: require("../img/nails.png"),
         page: "false",
       },
       {
-        text: "AddActivity 4",
-        imgSrc: require("../img/placeholder-image3.png"),
+        text: "CLEAN BAG/S",
+        imgSrc: require("../img/bag.png"),
         page: "false",
       },
     ],
       PerformedActivities: [],
     }
   }
+
+  onPress(done) {
+    // if (done === true) {
+    //   this.props.navigation.setOptions({
+    //     done: true
+    //   })
+      
+    // } else {
+    //   this.props.navigation.setOptions({
+    //     done: false
+    //   })
+      
+    // }
+    console.log(this.props)        
+    
+    this.props.navigation.goBack()
+  }  
+
   componentDidMount() {  
     // Grab activities from previous page to know not to reccommend them
     // or add on to array and pass back to parent
@@ -88,8 +106,13 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <TouchableOpacity style={styles.cancel} onPress={() => this.onPress(false)}>
+          <View style={{}}>
+            <Text style={{ fontSize: 18 }}>Cancel</Text>
+          </View>
+        </TouchableOpacity>
         <View style={styles.header}>
-          <ProfileButton/>
+          
           <Text style={styles.Time}>Add an Action</Text>
         </View>
         <View style={styles.activityContainer}>
@@ -172,4 +195,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly'
   },
+  cancel: {
+    position: 'absolute',
+    left: 30,
+    top: 60,
+  },
+  done: {
+    position: 'absolute',
+    right: 30,
+    top: 60,
+  }
 });

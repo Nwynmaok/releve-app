@@ -16,7 +16,7 @@ export default class App extends React.Component {
     this.deleteFunc = this.deleteFunc.bind(this);
     this.doneFunc = this.doneFunc.bind(this);   
     this.state = {
-      sliderProgress: 0,
+      sliderProgress: 20,
       activityRefresh: false,
       // Temp activities
       AvailableActivities: [
@@ -26,20 +26,20 @@ export default class App extends React.Component {
         page: "false",
       },
       {
-        text: "Activity 2",
-        imgSrc: require("../img/placeholder-image3.png"),
+        text: "SHAMPOO BAR",
+        imgSrc: require("../img/shampoo.png"),
         page: "false",
       },
       {
-        text: "Activity 3",
-        imgSrc: require("../img/placeholder-image3.png"),
+        text: "ORGANIC MAKEUP",
+        imgSrc: require("../img/makeup.png"),
         page: "false",
       },
-      {
-        text: "Activity 4",
-        imgSrc: require("../img/placeholder-image3.png"),
-        page: "false",
-      },
+      // {
+      //   text: "BAMBOO TOOTH",
+      //   imgSrc: require("../img/placeholder-image3.png"),
+      //   page: "false",
+      // },
     ],
       PerformedActivities: [],
       // Activity1: {
@@ -72,7 +72,7 @@ export default class App extends React.Component {
     let newArray = [...this.state.AvailableActivities];
 
     // initiate with OOOTD temporary
-    newArray[0] = {...newArray[0], text: "#OOOTD", imgSrc: require("../img/Shirt.png"), page: "OOOTD"}
+    newArray[0] = {...newArray[0], text: "OLD OUTFIT", imgSrc: require("../img/Shirt.png"), page: "OOOTD"}
     this.setState({AvailableActivities: newArray});
     // console.log(this)
     // console.log(this.state.activitiesMarkup)        
