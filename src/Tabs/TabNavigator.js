@@ -8,7 +8,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import ActivityMain from './Activities/ActivityMain.js';
 import ActivityPage from './Activities/ActivityPage.js';
 // import Savings from './Savings.js';
-// import Shop from './Shop.js';
+//import ShopDesigners from './Shop/ShopDesigners.js';
+//import ShopCategories from './Shop/ShopCategories.js';
+//import ShopBrandCommitment from './Shop/ShopBrandCommitment.js';
+import ShopCatalog from './Shop/ShopCatalog.js';
 // import Impact from './Impact.js';
 import FeedMain from './Feed/FeedMain.js';
 
@@ -27,16 +30,10 @@ const ActivityStack = createStackNavigator();
 
 function Activity() {
   return (
-<<<<<<< HEAD
-    <FeedStack.Navigator screenOptions={{headerShown: false}}>
-      <FeedStack.Screen name="ActivityMain" component={ActivityMain}/>
-    </FeedStack.Navigator>
-=======
     <ActivityStack.Navigator screenOptions={{headerShown: false}}>
       <ActivityStack.Screen name="ActivityMain" component={ActivityMain} />
       <ActivityStack.Screen name="ActivityPage" component={ActivityPage}/>
     </ActivityStack.Navigator>
->>>>>>> 762c18ae84c86cceb9075dd806b3872f7080edd1
   );
 }
 
@@ -48,11 +45,13 @@ function Savings() {
   );
 }
 
+const ShopStack = createStackNavigator();
+
 function Shop() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Shop!</Text>
-    </View>
+    <ShopStack.Navigator screenOptions={{headerShown: false}}>
+      <ShopStack.Screen name="ShopCatalog" component={ShopCatalog}/>
+    </ShopStack.Navigator>
   );
 }
 
