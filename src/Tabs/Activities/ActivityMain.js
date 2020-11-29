@@ -5,17 +5,20 @@ import ActivityTile from '../../../components/ActivityTile.js';
 import ProfileButton from '../../../components/ProfileButton.js';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import AnimatedProgressWheel from 'react-native-progress-wheel';
+import { useFocusEffect } from '@react-navigation/native';
 
 
 
 export default class App extends React.Component {
   constructor(props) {
-    console.log("Construct")
+    // console.log("Construct")
     super(props);
     this.deleteFunc = this.deleteFunc.bind(this);
-    this.doneFunc = this.doneFunc.bind(this);    
+    this.doneFunc = this.doneFunc.bind(this);   
     this.state = {
-      sliderProgress: 0,
+      sliderProgress: 20,
+      activityRefresh: false,
+      // Temp activities
       AvailableActivities: [
         {
         text: "Activity 1",
@@ -23,20 +26,20 @@ export default class App extends React.Component {
         page: "false",
       },
       {
-        text: "Activity 2",
-        imgSrc: require("../img/placeholder-image3.png"),
+        text: "SHAMPOO BAR",
+        imgSrc: require("../img/shampoo.png"),
         page: "false",
       },
       {
-        text: "Activity 3",
-        imgSrc: require("../img/placeholder-image3.png"),
+        text: "ORGANIC MAKEUP",
+        imgSrc: require("../img/makeup.png"),
         page: "false",
       },
-      {
-        text: "Activity 4",
-        imgSrc: require("../img/placeholder-image3.png"),
-        page: "false",
-      },
+      // {
+      //   text: "BAMBOO TOOTH",
+      //   imgSrc: require("../img/placeholder-image3.png"),
+      //   page: "false",
+      // },
     ],
       PerformedActivities: [],
       // Activity1: {
@@ -59,6 +62,7 @@ export default class App extends React.Component {
       // Activity4Page: "false",
     }
   }
+  
   componentDidMount() {  
     // console.log(this.props)   
     // console.log(this.state.AvailableActivities[0])        
@@ -66,9 +70,11 @@ export default class App extends React.Component {
     // this.setState({Activity1Img: require("../img/Shirt.png")});
     // this.setState({Activity1Page: "OOOTD"});
     let newArray = [...this.state.AvailableActivities];
-    newArray[0] = {...newArray[0], text: "#OOOTD", imgSrc: require("../img/Shirt.png"), page: "OOOTD"}
-    this.setState({AvailableActivities: newArray});
 
+    // initiate with OOOTD temporary
+    newArray[0] = {...newArray[0], text: "OLD OUTFIT", imgSrc: require("../img/Shirt.png"), page: "OOOTD"}
+    this.setState({AvailableActivities: newArray});
+    // console.log(this)
     // console.log(this.state.activitiesMarkup)        
     
     // this.setState({AvailableActivcities: Object.values()})
@@ -82,8 +88,8 @@ export default class App extends React.Component {
     let newArr = newArray.filter((item)=>{
       return item.text != text;
     })
-    console.log("arr:")
-    console.log(newArr)
+    // console.log("arr:")
+    // console.log(newArr)
     // console.log(newArray)    
     // for(var i = 0; i < newArray.length; i++) {
     //   console.log(text)      
@@ -112,11 +118,11 @@ export default class App extends React.Component {
     let newArr = newArray.filter((item)=>{
       return item.text != text;
     })
-    console.log(this.state.sliderProgress)
+    // console.log(this.state.sliderProgress)
     
     // this.setState({sliderProgress: this.state.sliderProgress+25})    
     this.setState({AvailableActivities: newArr, sliderProgress: this.state.sliderProgress+25});
-    console.log(this.state.sliderProgress)
+    // console.log(this.state.sliderProgress)
     
     // let newArray = [...this.arr];
     // for(var i = 0; i < newArray.length; i++) {
@@ -144,23 +150,57 @@ export default class App extends React.Component {
   // someMethod() {
   //   console.log("yes")
   // }
+  addActionPress() {
+    this.setState({activityRefresh: false})
+    this.props.navigation.navigate("AddActionPage", { activeActivities: this.state.AvailableActivities })
+  }
+
+  refreshActivites() {
+    // console.log(this.state)
+    if(this.state.activityRefresh == false) {
+      let newArray = [...this.state.AvailableActivities];
+      console.log("REFRESH")  
+      console.log(this.props.route.params)   
+      this.props.navigation.setParams({ newpage: false })      
+      newArray.push({
+        text: this.props.route.params.addText,
+        imgSrc: this.props.route.params.addSrc,
+        page: this.props.route.params.addPage,
+      })
+      // console.log(newArray) 
+
+      this.setState({AvailableActivities: newArray});  
+      this.setState({activityRefresh: !this.state.activityRefresh})
+    }
+  }
+
   renderActivitiesRow1(thisProps) {
 
-    console.log("props:")    
-    console.log(this.state.AvailableActivities)
+    // console.log("props:")    
+    // console.log(this.state.AvailableActivities)
     // console.log(this.AvailableActivities)
     // length = this.state.AvailableActivities.length
+    // console.log(this.props.route.params)
+    if (typeof this.props.route !== "undefined") {
+      if (typeof this.props.route.params !== "undefined") {
+        if (this.props.route.params.newpage) {
+          console.log("typeof")
+          this.refreshActivites()
+        }
+      }
+    }
     return this.state.AvailableActivities.map(function(item, index, array) {
-
-      console.log("1:")    
-      console.log(index)
+      
+      
+      // console.log("1:")    
+      // console.log(index)
       
       // console.log(array.length)
       // console.log(index)
       // if ((index % 2 === 0) && (index+1 != array.length)) {
         if (index < 2){
-        console.log("2:")    
-        console.log(index)
+        // console.log("2:")    
+        // console.log(index)
         
         // console.log(index + "HERE")
         // console.log(item)
@@ -187,21 +227,22 @@ export default class App extends React.Component {
 
   renderActivitiesRow2(thisProps) {
     
-        console.log("props:")    
-        console.log(this.state.AvailableActivities)
+        // console.log("props:")    
+        // console.log(this.state.AvailableActivities)
         // console.log(this.AvailableActivities)
         // length = this.state.AvailableActivities.length
+        
         return this.state.AvailableActivities.map(function(item, index, array) {
     
-          console.log("1:")    
-          console.log(index)
+          // console.log("1:")    
+          // console.log(index)
           
           // console.log(array.length)
           // console.log(index)
           // if ((index % 2 === 0) && (index+1 != array.length)) {
             if (index > 1){
-            console.log("2:")    
-            console.log(index)
+            // console.log("2:")    
+            // console.log(index)
             
             // console.log(index + "HERE")
             // console.log(item)
@@ -232,7 +273,10 @@ export default class App extends React.Component {
         <View style={styles.header}>
           <ProfileButton/>
           <Text style={styles.Time}>Good Morning!</Text>
-          <TouchableOpacity style={styles.AddAction} onPress={() => {}}>
+          <TouchableOpacity 
+            style={styles.AddAction} 
+            onPress={() => {this.addActionPress()}}
+          >
             <Ionicons name='ios-add-circle-outline' size='20' color='black' />
             <Text style={{fontSize: 18, color: 'black'}}> Add Actions</Text>
           </TouchableOpacity>
@@ -264,7 +308,7 @@ export default class App extends React.Component {
         <Text style={{fontSize: 24, paddingTop: 15, paddingBottom: 25}}>Great Work!</Text>
       </View>
       <View style={styles.kindness}>
-        <TouchableOpacity onPress={() => {console.log(this.doneFunc)}}>
+        <TouchableOpacity onPress={() => {console.log(this.props.route.params)}}>
           <Text style={styles.kindnessText}>Performed Act of Kindness</Text>
         </TouchableOpacity>
       </View>
